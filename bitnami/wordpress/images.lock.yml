@@ -4,54 +4,44 @@ metadata:
   generatedAt: "2022-09-26T14:43:00.026746763Z"
   generatedBy: Content Platform
 chart:
-  name: rabbitmq
+  name: wordpress
   version: 10.3.6
-  # Optionally, we can include the digest of the chart content before generating/updating this file
-  # digest: sha256:...
-  images:
-    - docker.io/bitnami/wordpress:6.0.2-debian-11-r9
-    - docker.io/bitnami/bitnami-shell:11-debian-11-r37
-    - docker.io/bitnami/apache-exporter:0.11.0-debian-11-r42
-dependencies:
-  - chart:
-      name: memcached
-      version: 6.2.5
-    images:
-      - docker.io/bitnami/memcached:1.6.17-debian-11-r6
-      - docker.io/bitnami/bitnami-shell:11-debian-11-r34
-      - docker.io/bitnami/memcached-exporter:0.10.0-debian-11-r32
-  - chart:
-      name: mariadb
-      version: 11.3.1
-    images:
-      - docker.io/bitnami/mariadb:10.6.10-debian-11-r0
-      - docker.io/bitnami/bitnami-shell:11-debian-11-r36
-      - docker.io/bitnami/mysqld-exporter:0.14.0-debian-11-r37
+  location: oci://an-oci-repo.com/bitnami/wordpress:10.3.6
+  digest: sha256:60f13c95c1a2dd37f25fe31e9cf3525704a544261a0b4c6b36f212990911b2c9
 images:
   - name: wordpress
     image: docker.io/bitnami/wordpress:6.0.2-debian-11-r9
     digest: sha256:b4cb055a643d1d51d1678f3e011cf008b227852bc0a4118126deeed844ccfb6a
+    chart: wordpress
   - name: bitnami-shell
     image: docker.io/bitnami/bitnami-shell:11-debian-11-r37
     digest: sha256:0946f1d16c010bed0a47e3c09ff193d898c868044bb4c1b037c83b7c53c26deb
+    chart: wordpress
   - name: apache-exporter
     image: docker.io/bitnami/apache-exporter:0.11.0-debian-11-r42
     digest: sha256:ea4aa97834500297e4252f5f98492c52a7bfd1993bd5ef4e485ae84996b1c63a
+    chart: wordpress
   - name: memcached
     image: docker.io/bitnami/memcached:1.6.17-debian-11-r6
     digest: sha256:337a65b5c6e98e4f91606caf66b09b40b21f30b0a67749d5aa705eca1d501be5
+    chart: memcached
   - name: bitnami-shell
     image: docker.io/bitnami/bitnami-shell:11-debian-11-r34
     digest: sha256:fdc0aa4a0b69ff8fcd0d2a553fe78be432b891569208c52d97ad8a215569a959
+    chart: memcached
   - name: memcached-exporter
     image: docker.io/bitnami/memcached-exporter:0.10.0-debian-11-r32
     sha256: sha256:940f5a5012e63313383015b941e4f7400cc9fa2d408c4b1d47956f8f695fa826
+    chart: memcached
   - name: mariadb
     image: docker.io/bitnami/mariadb:10.6.10-debian-11-r0
     digest: sha256:f134b4e02b7218a3f401f764be8aee167af1f72832aa5d3408e2116828963ddc
+    chart: mariadb
   - name: bitnami-shell
     image: docker.io/bitnami/bitnami-shell:11-debian-11-r36
     digest: sha256:b555390184f95d85536cdb155bd7f55be04052314afa762797931b8398f64764
+    chart: mariadb
   - name: mysqld-exporter
     image: docker.io/bitnami/mysqld-exporter:0.14.0-debian-11-r37
     digest: sha256:60f13c95c1a2dd37f25fe31e9cf3525704a544261a0b4c6b36f212990911b2c9
+    chart: mariadb
